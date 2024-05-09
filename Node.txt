@@ -1,0 +1,19 @@
+const express=require("express")
+const app=express();
+const port=3000;
+
+app.get("/",(req,res)=>{
+	res.sendFile("dashboard.html",{root:_dirname});
+});
+app.get("/about",(req,res)=>{
+	res.send(`<h1> hello world`);
+});
+app.listen(port,()=>{
+	console.log(`listen the port ${port}`)
+});
+
+
+
+// npm i express
+
+// node indexedDB.js

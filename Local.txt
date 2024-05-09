@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Registration Form</h2>
+
+            <form action ="#">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="Email" class="form-control" id="Email" name="Email" placeholder="Enter Email">
+                </div>
+
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="Password" class="form-control" id="Password" name="Password" placeholder="Enter Password">
+                </div>
+
+                <div class="text-centre">
+                    <button type="button" onclick="saveData()" class="btn btn-primary" id="save_btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    function saveData(){
+        let name,Email,Password;
+        name=document.getElementById("name").value;
+        Email=document.getElementById("Email").value;
+        Password=document.getElementById("Password").value;
+        console.log(name+Email+Password);
+
+        // localStorage.setItem("name",name);
+        // localStorage.setItem("Email",Email);
+        // localStorage.setItem("Password",Password);
+
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_records.some((v)=>{
+            return v.Email==Email
+        })){
+            alert("Duplicate Data");
+        }
+        else{
+            user_records.push({
+                "name":name,
+                "Email":Email,
+                "Password":Password
+            })
+            localStorage.setItem("users",JSON.stringify(user_records));
+        }
+    }
+    
+</script>
+</html>
+
+
+
+
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    border: none;
+}
+
+.container .card{
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom:10px ;
+}
+
+.container .card .text-center button{
+    margin-top: 10px;
+}
