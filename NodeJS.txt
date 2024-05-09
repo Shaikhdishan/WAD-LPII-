@@ -1,0 +1,19 @@
+Nodes js practical 
+
+npm init (give des , author name json file will be created )
+
+npm install express --save (then module file will be created )
+
+const express=require('express');  [write this in index.js file]
+const app=express();
+
+[ then create public folder and inside it create index.html ]
+
+app.use(express.static('public'))
+app.listen(4000,()>={
+   console.log("server is started");
+})
+
+node index.js [in terminal ]
+
+
