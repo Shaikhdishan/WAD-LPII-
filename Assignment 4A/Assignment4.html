@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mobile Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+    <div data-role="page" id="home">
+
+        <div data-role="header">
+            <h1>Mobile Website</h1>
+        </div>
+
+        <div class="ui-content">
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><button id="openPanel">Open Panel</button></div>
+                <div class="ui-block-b"><button id="openDialog">Open Dialog</button></div>
+            </div>
+
+            <div data-role="panel" id="menu" data-display="overlay">
+                <ul data-role="listview">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div data-role="popup" id="dialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
+                style="max-width:400px;">
+                <div class="ui-content">
+                    <h3>Dialog Box</h3>
+                    <p>This is a dialog box. Click outside to close.</p>
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Close</a>
+                </div>
+            </div>
+
+            <label for="slider">Slider:</label>
+            <input type="range" name="slider" id="slider" value="50" min="0" max="100">
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="https://tse1.mm.bing.net/th?id=OIP.TqRw9_OZAgHCbZobqFC5JAHaFj&pid=Api&P=0&h=220" class="ui-btn-active">Image1</a></li>
+                    <li><a href="https://tse3.mm.bing.net/th?id=OIP.egDl4UXxpNjRL4nwkJo-6gHaE8&pid=Api&P=0&h=220">Image2</a></li>
+                    <li><a href="https://tse1.mm.bing.net/th?id=OIP.x4s3puUdx55RFefTsJMCjQHaEK&pid=Api&P=0&h=220">Image3</a></li>
+                    <li><a href="https://tse1.mm.bing.net/th?id=OIP.gbyEzELO8U2LZoLmPq_sAwHaEo&pid=Api&P=0&h=220">Image4</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div data-role="footer">
+            <h4>Mobile Website</h4>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).on("pagecreate", function () {
+            $("#openPanel").on("click", function () {
+                $("#menu").panel("open");
+            });
+
+            $("#openDialog").on("click", function () {
+                $("#dialog").popup("open");
+            });
+        });
+    </script>
+
+</body>
+</html>
